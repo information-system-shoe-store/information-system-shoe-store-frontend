@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Table } from 'reactstrap';
-import { IProduct } from '../types/types';
+import { IProduct } from '../../types/types';
 
 interface ProductListProps {
     products: IProduct[]
@@ -19,10 +19,22 @@ const ProductList: FC<ProductListProps> = ({ products }) => {
                 <thead>
                     <tr>
                         <th>
-                            #
+                            Код товара
                         </th>
                         <th>
-                            Name
+                            Наименование
+                        </th>
+                        <th>
+                            Производитель
+                        </th>
+                        <th>
+                            Количество
+                        </th>
+                        <th>
+                            Дата поступления
+                        </th>
+                        <th>
+                            Цена за единицу
                         </th>
                     </tr>
                 </thead>
@@ -33,6 +45,10 @@ const ProductList: FC<ProductListProps> = ({ products }) => {
                                 <tr>
                                     <th scope="row" key={product.id}>{product.id}</th>
                                     <td>{product.name}</td>
+                                    <td>{product.manufacturer}</td>
+                                    <td>{product.amount}</td>
+                                    <td>{product.receiptDate}</td>
+                                    <td>{product.unitPrice}</td>
                                 </tr>
                         )
                     }
