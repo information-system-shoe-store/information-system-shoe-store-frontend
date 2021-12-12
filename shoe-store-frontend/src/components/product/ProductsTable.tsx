@@ -1,12 +1,21 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Table } from 'reactstrap';
 import { IProduct } from '../../types/types';
+import { useNavigate } from 'react-router-dom'
 
-interface ProductListProps {
+interface ProductTableProps {
     products: IProduct[]
+    onClick: (product: IProduct) => void;
 }
 
-const ProductList: FC<ProductListProps> = ({ products }) => {
+const ProductTable: FC<ProductTableProps> = ({ products, onClick }) => {
+
+    const navigate = useNavigate()
+
+    const getProduct = (product: IProduct) => {
+        navigate('/products/' + product.id);
+        onClick(product);
+    }
 
     return (
         <div>
@@ -42,7 +51,7 @@ const ProductList: FC<ProductListProps> = ({ products }) => {
                     {
                         products.map(
                             product =>
-                                <tr>
+                                <tr onClick={() => { getProduct(product) }}>
                                     <th scope="row" key={product.id}>{product.id}</th>
                                     <td>{product.name}</td>
                                     <td>{product.manufacturer}</td>
@@ -58,4 +67,4 @@ const ProductList: FC<ProductListProps> = ({ products }) => {
     )
 }
 
-export default ProductList;
+export default ProductTable;
