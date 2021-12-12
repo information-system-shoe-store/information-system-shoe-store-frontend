@@ -1,48 +1,21 @@
-import axios from 'axios';
-import { FC, useEffect, useState } from 'react';
-import { IProduct } from "../../types/types";
-import { useNavigate, useParams } from 'react-router-dom';
 import { DialogTitle, DialogContent, DialogContentText, DialogActions, Button, Dialog } from '@material-ui/core';
+import { FC } from 'react';
 import { Form, FormGroup, Input, Label } from 'reactstrap';
-
-const BASE_PRODUCT_URL = 'http://localhost:8080/product/';
 
 interface ModalProps {
   isModalVisible: boolean;
   closeModal: () => void;
 }
 
-const ProductItem: FC<ModalProps> = ({ isModalVisible, closeModal }) => {
-
-  const [product, setProduct] = useState<IProduct | null>(null)
-  const params = useParams()
-  const navigate = useNavigate()
-
-  const goBack = () => {
-    navigate('/products');
-    closeModal();
-  }
-
-  useEffect(() => {
-    fetchProduct();
-  }, [])
-
-  async function fetchProduct() {
-    try {
-      const response = await axios.get<IProduct>(BASE_PRODUCT_URL + params.id)
-      setProduct(response.data)
-    } catch (e) {
-      setProduct(null);
-    }
-  }
+const ProductAdd: FC<ModalProps> = ({ isModalVisible, closeModal }) => {
 
   return (
     <div>
-      <Dialog open={isModalVisible} onClose={goBack} fullWidth maxWidth="sm">
-        <DialogTitle><h2>Товар № {product?.id}</h2></DialogTitle>
+      <Dialog open={isModalVisible} onClose={closeModal} fullWidth maxWidth="sm">
+        <DialogTitle><h2>Добавить товар</h2></DialogTitle>
         <DialogContent>
           <DialogContentText>
-          <Form>
+            <Form>
               <FormGroup>
                 <Label for="name">
                   <h4>Наименование</h4>
@@ -50,9 +23,8 @@ const ProductItem: FC<ModalProps> = ({ isModalVisible, closeModal }) => {
                 <Input
                   id="name"
                   name="name"
-                  placeholder={product?.name}
+                  placeholder="Кроссовки"
                   type="text"
-                  disabled
                 />
               </FormGroup>
               <FormGroup>
@@ -62,9 +34,8 @@ const ProductItem: FC<ModalProps> = ({ isModalVisible, closeModal }) => {
                 <Input
                   id="manufacturer"
                   name="manufacturer"
-                  placeholder={product?.manufacturer}
+                  placeholder="Nike"
                   type="text"
-                  disabled
                 />
               </FormGroup>
               <FormGroup>
@@ -74,9 +45,8 @@ const ProductItem: FC<ModalProps> = ({ isModalVisible, closeModal }) => {
                 <Input
                   id="amount"
                   name="amount"
-                  placeholder={String(product?.amount)}
+                  placeholder="3"
                   type="number"
-                  disabled
                 />
               </FormGroup>
               <FormGroup>
@@ -86,9 +56,8 @@ const ProductItem: FC<ModalProps> = ({ isModalVisible, closeModal }) => {
                 <Input
                   id="receiptDate"
                   name="receiptDate"
-                  placeholder={String(product?.receiptDate)}
-                  type="text"
-                  disabled
+                  placeholder="10.12.2021"
+                  type="date"
                 />
               </FormGroup>
               <FormGroup>
@@ -98,9 +67,8 @@ const ProductItem: FC<ModalProps> = ({ isModalVisible, closeModal }) => {
                 <Input
                   id="unitPrice"
                   name="unitPrice"
-                  placeholder={String(product?.unitPrice)}
+                  placeholder="5500.05"
                   type="number"
-                  disabled
                 />
               </FormGroup>
               <FormGroup>
@@ -111,7 +79,6 @@ const ProductItem: FC<ModalProps> = ({ isModalVisible, closeModal }) => {
                   id="providers"
                   name="providers"
                   type="select"
-                  disabled
                 >
                   <option>
                     Nike
@@ -134,12 +101,12 @@ const ProductItem: FC<ModalProps> = ({ isModalVisible, closeModal }) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={goBack}>Закрыть</Button>
-          <Button onClick={goBack}>Изменить</Button>
+          <Button onClick={closeModal}>Закрыть</Button>
+          <Button onClick={closeModal}>Сохранить</Button>
         </DialogActions>
       </Dialog>
     </div>
   );
 };
 
-export default ProductItem;
+export default ProductAdd;
