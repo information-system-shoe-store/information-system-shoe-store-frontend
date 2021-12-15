@@ -1,16 +1,15 @@
 export interface IProduct {
-    id: number;
+    id?: number;
     name?: string;
     manufacturer?: string;
     amount?: number;
-    receiptDate?: Date;
+    receiptDate?: string;
     unitPrice?: number;
     providers?: IProvider[];
-    sellers?: ISeller[];
 }
 
 export interface IProvider {
-    id: number;
+    id?: number;
     name?: string;
     phone?: number;
     adress?: string;
@@ -19,17 +18,9 @@ export interface IProvider {
 }
 
 export interface ISale {
-    id: number;
+    id?: number;
     saleDate?: Date;
     price?: number;
     amountSold?: number;
-    products?: IProduct[];
-}
-
-export interface ISeller {
-    id: number;
-    personalNumber?: string;
-    fullName?: string;
-    position?: string;
     products?: IProduct[];
 }

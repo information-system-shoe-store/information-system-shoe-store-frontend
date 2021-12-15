@@ -11,12 +11,6 @@ const BASE_PRODUCT_URL = 'http://localhost:8080/product/';
 
 const ProductsPage: FC = () => {
 
-    // const products: IProduct[] = [
-    //     { id: 1, name: 'Test1', manufacturer: 'TestManufacturer2', amount: 12, unitPrice: 1100.3 },
-    //     { id: 2, name: 'Test2', manufacturer: 'TestManufacturer2', amount: 150, unitPrice: 15.05 },
-    //     { id: 3, name: 'Test3', manufacturer: 'TestManufacturer3', amount: 1050, unitPrice: 100 },
-    // ]
-
     const [products, setProducts] = useState<IProduct[]>([])
 
     useEffect(() => {
