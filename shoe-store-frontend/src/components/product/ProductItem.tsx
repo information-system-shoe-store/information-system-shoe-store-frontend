@@ -42,7 +42,7 @@ const ProductItem: FC<ModalProps> = ({ isModalVisible, closeModal }) => {
         <DialogTitle><h2>Товар № {product?.id}</h2></DialogTitle>
         <DialogContent>
           <DialogContentText>
-          <Form>
+            <Form>
               <FormGroup>
                 <Label for="name">
                   <h4>Наименование</h4>
@@ -114,23 +114,17 @@ const ProductItem: FC<ModalProps> = ({ isModalVisible, closeModal }) => {
                   disabled
                 >
                   <option>
-                    Nike
+                    OOO Поставщик красивых кросовок
                   </option>
                   <option>
-                    Adidas
+                    OOO Поставщик крутых кросовок
                   </option>
                   <option>
-                    Puma
-                  </option>
-                  <option>
-                    Reebok
-                  </option>
-                  <option>
-                    New Balance
+                    OOO Поставщик удобной обуви
                   </option>
                 </Input>
               </FormGroup>
-              </Form>
+            </Form>
           </DialogContentText>
         </DialogContent>
         <DialogActions>

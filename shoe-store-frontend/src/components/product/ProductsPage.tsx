@@ -4,7 +4,7 @@ import { Button } from 'reactstrap';
 import { IProduct } from '../../types/types';
 import Header from '../Header';
 import ProductAdd from './ProductAdd';
-import ProductItemModal from './ProductItem';
+import ProductItem from './ProductItem';
 import ProductTable from './ProductsTable';
 
 const BASE_PRODUCT_URL = 'http://localhost:8080/product/';
@@ -47,7 +47,7 @@ const ProductsPage: FC = () => {
                 {isAddProductModalVisible && <ProductAdd isModalVisible={isAddProductModalVisible} closeModal={toggleAddProductModal} />}
             </div>
             <ProductTable onClick={toggleItemProductModal} products={products} />
-            {isItemProductModalVisible && <ProductItemModal isModalVisible={isItemProductModalVisible} closeModal={toggleItemProductModal} />}
+            {isItemProductModalVisible && <ProductItem isModalVisible={isItemProductModalVisible} closeModal={toggleItemProductModal} />}
         </div>
     );
 };

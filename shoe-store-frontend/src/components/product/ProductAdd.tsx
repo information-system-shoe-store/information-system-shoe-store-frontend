@@ -126,19 +126,13 @@ const ProductAdd: FC<ModalProps> = ({ isModalVisible, closeModal }) => {
                   type="select"
                 >
                   <option>
-                    Nike
+                    OOO Поставщик красивых кросовок
                   </option>
                   <option>
-                    Adidas
+                    OOO Поставщик крутых кросовок
                   </option>
                   <option>
-                    Puma
-                  </option>
-                  <option>
-                    Reebok
-                  </option>
-                  <option>
-                    New Balance
+                    OOO Поставщик удобной обуви
                   </option>
                 </Input>
               </FormGroup>

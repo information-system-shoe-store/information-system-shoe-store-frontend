@@ -25,17 +25,12 @@ const Header = () => {
                         </NavItem>
                         <NavItem>
                             <NavLink href="/providers">
-                                Производители
+                                Поставщики
                             </NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink href="/sales">
                                 Продажи
-                            </NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="/sallers">
-                                Продавцы
                             </NavLink>
                         </NavItem>
                     </Nav>
