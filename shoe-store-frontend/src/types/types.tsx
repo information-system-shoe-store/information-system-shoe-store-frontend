@@ -11,15 +11,15 @@ export interface IProduct {
 export interface IProvider {
     id?: number;
     name?: string;
-    phone?: number;
-    adress?: string;
+    phone?: string;
+    address?: string;
     contactPerson?: string;
     products?: IProduct[];
 }
 
 export interface ISale {
     id?: number;
-    saleDate?: Date;
+    saleDate?: string;
     price?: number;
     amountSold?: number;
     products?: IProduct[];
