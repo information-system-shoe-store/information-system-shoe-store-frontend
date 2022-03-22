@@ -33,6 +33,11 @@ const Header = () => {
                                 Продажи
                             </NavLink>
                         </NavItem>
+                        <NavItem>
+                            <NavLink href="/statistics">
+                                Статистика
+                            </NavLink>
+                        </NavItem>
                     </Nav>
                     <NavbarText>
                         User

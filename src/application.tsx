@@ -4,6 +4,7 @@ import HomePage from './components/HomePage';
 import ProductsPage from './components/product/ProductsPage';
 import ProvidersPage from './components/provider/ProvidersPage';
 import SalesPage from './components/sale/SalesPage';
+import StatisticsPage from './components/statistic/StatisticsPage';
 
 
 export interface IApplicationProps { }
@@ -25,6 +26,9 @@ const Application: React.FunctionComponent<IApplicationProps> = props => {
                 <Routes>
                     <Route path="/sales" element={<SalesPage />} />
                     <Route path="/sales/:id" element={<SalesPage />} />
+                </Routes>
+                <Routes>
+                    <Route path="/statistics" element={<StatisticsPage />} />
                 </Routes>
             </div>
         </BrowserRouter>

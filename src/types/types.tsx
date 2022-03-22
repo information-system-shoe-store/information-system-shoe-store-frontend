@@ -24,3 +24,14 @@ export interface ISale {
     amountSold?: number;
     products?: IProduct[];
 }
+
+export interface ICountStatistic {
+    productCount?: number;
+    providerCount?: number;
+    saleCount?: number;
+}
+
+export interface IDateRange {
+    startDate?: Date;
+    endDate?: Date;
+}
